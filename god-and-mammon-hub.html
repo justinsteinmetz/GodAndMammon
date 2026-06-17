@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>God and Mammon — American Exceptionablism · DSP Prague</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #F3ECD8;
+  --parchment-deep: #EAE0C3;
+  --parchment-darker: #D9CCA8;
+  --ink: #261D14;
+  --ink-soft: #5B4C3A;
+  --rubric: #8C3526;
+  --ledger: #3F5536;
+  --gold: #9C7A3C;
+  --edge: #C9BB95;
+  --stone: #6B6458;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0;
+  opacity: 0.7; mix-blend-mode: multiply;
+}
+
+/* ══ HERO ══ */
+.hero {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 clamp(3rem, 6vw, 5rem);
+  border-bottom: 2px solid var(--ink);
+  overflow: hidden;
+}
+
+/* Cross geometry — faint, like watermark */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom, transparent calc(50% - 1px), rgba(38,29,20,0.06) calc(50% - 1px), rgba(38,29,20,0.06) calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to right, transparent calc(50% - 1px), rgba(38,29,20,0.06) calc(50% - 1px), rgba(38,29,20,0.06) calc(50% + 1px), transparent calc(50% + 1px));
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  padding: 0 clamp(1.5rem, 8vw, 7rem);
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3.5rem, 11vw, 9rem);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+.hero-title-and {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: clamp(1.8rem, 5vw, 4rem);
+  color: var(--ink-soft);
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.hero-title-mammon {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3.5rem, 11vw, 9rem);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  color: var(--rubric);
+}
+
+.hero-verse {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+  color: var(--ink-soft);
+  margin-top: 2rem;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+.hero-verse cite {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-style: normal;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-top: 0.5rem;
+}
+
+/* ══ STRAND STATEMENT ══ */
+.strand-statement {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--edge);
+}
+
+.strand-left {
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 8vw, 7rem);
+  border-right: 1px solid var(--edge);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.strand-q {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.strand-q em { font-style: italic; color: var(--rubric); }
+
+.strand-right {
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem);
+  background: var(--parchment-deep);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.strand-body {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+.strand-body strong { color: var(--ink); font-weight: 500; }
+
+/* ══ INSTRUMENTS ══ */
+.instruments-section {
+  position: relative; z-index: 1;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 8vw, 7rem);
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--edge);
+}
+
+/* Instrument grid */
+.instrument-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--edge);
+  border: 1px solid var(--edge);
+  margin-bottom: 1px;
+}
+
+.instrument {
+  background: var(--parchment);
+  padding: 1.6rem 1.5rem;
+  text-decoration: none;
+  display: block;
+  transition: background 0.15s;
+  position: relative;
+  border-top: 3px solid transparent;
+}
+
+.instrument:hover { background: var(--parchment-deep); }
+.instrument.i1 { border-top-color: var(--stone); }
+.instrument.i2 { border-top-color: var(--ledger); }
+.instrument.i3 { border-top-color: var(--rubric); }
+.instrument.i4 { border-top-color: var(--gold); }
+.instrument.i5 { border-top-color: var(--ink); }
+
+.inst-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 0.6rem;
+}
+
+.inst-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.inst-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--stone);
+  margin-bottom: 0.75rem;
+}
+
+.inst-question {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
+}
+
+.inst-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* CODA — full width, different treatment */
+.coda {
+  background: var(--parchment-deep);
+  border: 1px solid var(--edge);
+  border-top: 3px solid var(--rubric);
+  padding: 1.6rem 1.5rem;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: center;
+  transition: background 0.15s;
+}
+
+.coda:hover { background: var(--parchment-darker); }
+
+.coda-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: rgba(38,29,20,0.08);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.coda-body { }
+
+.coda-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rubric);
+  margin-bottom: 0.5rem;
+}
+
+.coda-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.coda-note {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* ══ THROUGH-LINE ══ */
+.through-line {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--edge);
+  border-bottom: 1px solid var(--edge);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: var(--parchment-deep);
+}
+
+.tl-item {
+  padding: 1.5rem 1.2rem;
+  border-right: 1px solid var(--edge);
+}
+
+.tl-item:last-child { border-right: none; }
+
+.tl-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 0.4rem;
+}
+
+.tl-mechanism {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+
+.tl-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* ══ FOOTER ══ */
+.hub-footer {
+  position: relative; z-index: 1;
+  padding: 1.5rem clamp(1.5rem, 8vw, 7rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+@media (max-width: 800px) {
+  .strand-statement { grid-template-columns: 1fr; }
+  .strand-left { border-right: none; border-bottom: 1px solid var(--edge); }
+  .instrument-grid { grid-template-columns: 1fr 1fr; }
+  .through-line { grid-template-columns: 1fr 1fr; }
+  .coda { grid-template-columns: 1fr; gap: 0.5rem; }
+  .coda-num { display: none; }
+}
+
+@media (max-width: 520px) {
+  .instrument-grid { grid-template-columns: 1fr; }
+  .through-line { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">American Exceptionablism &nbsp;·&nbsp; DSP Prague &nbsp;·&nbsp; Grades 11–12</div>
+    <div class="hero-title">God</div>
+    <div class="hero-title-and">and</div>
+    <div class="hero-title-mammon">Mammon</div>
+    <div class="hero-verse">
+      "No one can serve two masters. Either you will hate the one and love the other, or you will be devoted to the one and despise the other. You cannot serve both God and Mammon."
+      <cite>Matthew 6:24</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STRAND STATEMENT ══ -->
+<section class="strand-statement">
+  <div class="strand-left">
+    <h2 class="strand-q">Five instruments on faith, power, and <em>the American nation.</em></h2>
+  </div>
+  <div class="strand-right">
+    <p class="strand-body">American Christianity has been repeatedly available as <strong>technology</strong> — for producing compliance, justifying conquest, sanctifying racial hierarchy, and reproducing political power — while claiming to serve God.</p>
+  </div>
+</section>
+
+<!-- ══ INSTRUMENTS ══ -->
+<section class="instruments-section">
+  <div class="section-label">The instruments</div>
+
+  <div class="instrument-grid">
+
+    <a class="instrument i1" href="https://justinsteinmetz.github.io/suitable-passages/">
+      <div class="inst-num">Instrument I</div>
+      <div class="inst-title">Suitable Passages</div>
+      <div class="inst-date">London, 1807</div>
+      <div class="inst-question">"Which parts of the Bible should an enslaved person be allowed to read?"</div>
+      <div class="inst-role">Role: Editor</div>
+    </a>
+
+    <a class="instrument i2" href="https://justinsteinmetz.github.io/manifest-destiny/">
+      <div class="inst-num">Instrument II</div>
+      <div class="inst-title">Two Documents</div>
+      <div class="inst-date">United States, 1830–1839</div>
+      <div class="inst-question">"Both sides appealed to God. They reached opposite conclusions. Why?"</div>
+      <div class="inst-role">Role: Historian</div>
+    </a>
+
+    <a class="instrument i3" href="https://justinsteinmetz.github.io/the-lost-cause/">
+      <div class="inst-num">Instrument III</div>
+      <div class="inst-title">A Ceremony</div>
+      <div class="inst-date">Chapel Hill, North Carolina, 1913</div>
+      <div class="inst-question">"The Confederacy lasted four years. How long did the story last?"</div>
+      <div class="inst-role">Role: Attendee</div>
+    </a>
+
+    <a class="instrument i4" href="https://justinsteinmetz.github.io/muscular-christianity/">
+      <div class="inst-num">Instrument IV</div>
+      <div class="inst-title">A Revival</div>
+      <div class="inst-date">New York City, 1917–2016</div>
+      <div class="inst-question">"Who is this Jesus?"</div>
+      <div class="inst-role">Role: Genealogist</div>
+    </a>
+
+    <a class="instrument i5" href="https://justinsteinmetz.github.io/the-present-tense/">
+      <div class="inst-num">Instrument V</div>
+      <div class="inst-title">The Present Tense</div>
+      <div class="inst-date">United States, 2019–2023</div>
+      <div class="inst-question">"Where have you seen this before?"</div>
+      <div class="inst-role">Role: Witness</div>
+    </a>
+
+
+  </div>
+
+  <!-- CODA -->
+  <a class="coda" href="https://justinsteinmetz.github.io/exodus/">
+    <div class="coda-num">VI</div>
+    <div class="coda-body">
+      <div class="coda-eyebrow">Coda — not an instrument. An audit.</div>
+      <div class="coda-title">Exodus</div>
+      <div class="coda-note">The editors removed Exodus. The following pages document what happened to that story after it was removed.</div>
+    </div>
+  </a>
+
+</section>
+
+<!-- ══ THROUGH-LINE ══ -->
+<section class="through-line">
+  <div class="tl-item">
+    <div class="tl-num">I</div>
+    <div class="tl-mechanism">Editing</div>
+    <div class="tl-title">Suitable Passages</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-num">II</div>
+    <div class="tl-mechanism">Justification</div>
+    <div class="tl-title">Two Documents</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-num">III</div>
+    <div class="tl-mechanism">Memorialisation</div>
+    <div class="tl-title">A Ceremony</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-num">IV</div>
+    <div class="tl-mechanism">Reproduction</div>
+    <div class="tl-title">A Revival</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-num">V</div>
+    <div class="tl-mechanism">Continuation</div>
+    <div class="tl-title">The Present Tense</div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="hub-footer">
+  <span class="footer-label">DSP Prague · American Exceptionablism · Jahrgangsstufe 11/12</span>
+  <span class="footer-label">justinsteinmetz.github.io/AE/</span>
+</footer>
+
+</body>
+</html>
